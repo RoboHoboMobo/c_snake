@@ -277,6 +277,8 @@ void play()
         refresh();
     }
 
+    Snake_delete(&sn);
+
     cbreak();
     noraw();
     timeout(-1);

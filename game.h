@@ -70,6 +70,8 @@ typedef struct Food
 void Snake_init(Snake* s);
 bool Snake_add(Snake* s);
 Snake_chunk* Snake_at(Snake* s, unsigned index);
+void Snake_pop(Snake* s);                        // Remove last chunk
+void Snake_delete(Snake* s);                     // Remove all chunks
 
 // Game's functions
 void play();                                   // Basic function

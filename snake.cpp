@@ -82,3 +82,30 @@ Snake_chunk* Snake_at(Snake* s, unsigned index) // Get chunk by index
 
     return sc;
 }
+
+void Snake_pop(Snake* s)
+{
+    if(s->size == 0)
+        return;
+
+    if(s->size == 1)
+    {
+        delete s->head;
+        s->head = NULL;
+        s->tail = NULL;
+        s->size--;
+
+        return;
+    }
+
+    delete s->tail;
+    s->size--;
+    s->tail = Snake_at(s, s->size-1);
+    s->tail->next = NULL;
+}
+
+void Snake_delete(Snake* s)
+{
+    while(s->size > 0)
+        Snake_pop(s);
+}
